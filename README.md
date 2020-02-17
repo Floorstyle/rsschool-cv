@@ -1,2 +1,2 @@
 # rsschool-cv
-[cv](https://Floorstyle.github.io/rsschool-cv/cv)
+[Curriculum vitae](https://Floorstyle.github.io/rsschool-cv/cv)
