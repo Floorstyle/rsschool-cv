@@ -16,22 +16,71 @@
         <li><a class="contacts" href="https://t.me/Floorstyle">@Floorstyle</a></li>
 	<li><a class="contacts" href="mailto:mussdaniyar@gmail.com">mussdaniyar@gmail.com</a></li>
     </ul>
-    <h3>About</h3>
-    <p>My wish is to buy bmw, so web-development is the best way. No need to teach me, I am strongly motivated.</p>
-    <h3>Skills</h3>
-    <ul>
-        <li>Windows</li>
-        <li>Office</li>
-        <li>Minesweeper</li>
-    </ul>
     <h3>Code examples</h3>
-    <a class="contacts" href="https://lemin.cleverapps.io/">Golang web project</a>
-    <h3>Experience</h3>
-    <p>Courses on codeAcademy. Olympic competitions at school.</p>
-    <h3>Education</h3>
-    <p>University of Ljubljana, Faculty of Electrical Engineering.</p>
-    <h3>English</h3>
-    <ul><li>IELTS 6.5</li></ul>
+    <code>
+	package main
 
+	import (
+		"fmt"
+		"os"
+		"strconv"
+	)
+
+	// The Fibonacci numbers, commonly denoted F(n) form a sequence,
+	// called the Fibonacci sequence, such that each number is
+	// the sum of the two preceding ones, starting from 0 and 1. That is,
+	// F(0) = 0,   F(1) = 1
+	// F(N) = F(N - 1) + F(N - 2), for N > 1.
+	// Given N, calculate F(N).
+	// 0 ≤ N ≤ 92.
+	func main() {
+		// take arguments from console
+		arguments := os.Args
+		// check if there is valid numbers of argument
+		if len(arguments) != 2 {
+			fmt.Println("Please enter only one argument N")
+			return
+		}
+		//converting string number to integer number
+		N, err := strconv.Atoi(arguments[1])
+		//handling not valid numbers
+		if err != nil || N < 0 {
+			fmt.Println("Please enter only valid number")
+			return
+		}
+		//calling method fib to calculate fibonacci number
+		fmt.Println(Fib(N))
+	}
+
+	//creating Map to store results
+	var Map map[int]int
+
+	// 0 ≤ N ≤ 92.
+	func Fib(N int) int {
+
+		Map = make(map[int]int)
+		return Recurse(N)
+	}
+	func Recurse(N int) int {
+		//checking if N allready calculated, returning it's result
+		_, ok := Map[N]
+		if ok {
+			return Map[N]
+		}
+		result := 0
+		// base point of recursiton when number is 0 or 1
+		if N == 0 || N == 1 {
+			result = N
+		}
+		// calling recursion when Number is more or equal 2
+		// f(N) = f(N-1) + f(N-2)
+		if N >= 2 {
+			result = Recurse(N-1) + Recurse(N-2)
+		}
+		//adding new result
+		Map[N] = result
+		return result
+	}
+    </code>
 </body>
 </html>
