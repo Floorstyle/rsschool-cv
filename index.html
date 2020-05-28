@@ -18,69 +18,69 @@
     </ul>
     <h3>Code examples</h3>
     <code>
-	package main
-
-	import (
-		"fmt"
-		"os"
-		"strconv"
-	)
-
-	// The Fibonacci numbers, commonly denoted F(n) form a sequence,
-	// called the Fibonacci sequence, such that each number is
-	// the sum of the two preceding ones, starting from 0 and 1. That is,
-	// F(0) = 0,   F(1) = 1
-	// F(N) = F(N - 1) + F(N - 2), for N > 1.
-	// Given N, calculate F(N).
-	// 0 ≤ N ≤ 92.
-	func main() {
-		// take arguments from console
-		arguments := os.Args
-		// check if there is valid numbers of argument
-		if len(arguments) != 2 {
-			fmt.Println("Please enter only one argument N")
-			return
-		}
-		//converting string number to integer number
-		N, err := strconv.Atoi(arguments[1])
-		//handling not valid numbers
-		if err != nil || N < 0 {
-			fmt.Println("Please enter only valid number")
-			return
-		}
-		//calling method fib to calculate fibonacci number
-		fmt.Println(Fib(N))
-	}
-
-	//creating Map to store results
-	var Map map[int]int
-
-	// 0 ≤ N ≤ 92.
-	func Fib(N int) int {
-
-		Map = make(map[int]int)
-		return Recurse(N)
-	}
-	func Recurse(N int) int {
-		//checking if N allready calculated, returning it's result
-		_, ok := Map[N]
-		if ok {
-			return Map[N]
-		}
-		result := 0
-		// base point of recursiton when number is 0 or 1
-		if N == 0 || N == 1 {
-			result = N
-		}
-		// calling recursion when Number is more or equal 2
-		// f(N) = f(N-1) + f(N-2)
-		if N >= 2 {
-			result = Recurse(N-1) + Recurse(N-2)
-		}
-		//adding new result
-		Map[N] = result
-		return result
-	}
+	package main<br>
+	<br>
+	import (<br>
+		"fmt"<br>
+		"os"<br>
+		"strconv"<br>
+	)<br>
+	<br>
+	// The Fibonacci numbers, commonly denoted F(n) form a sequence,<br>
+	// called the Fibonacci sequence, such that each number is<br>
+	// the sum of the two preceding ones, starting from 0 and 1. That is,<br>
+	// F(0) = 0,   F(1) = 1<br>
+	// F(N) = F(N - 1) + F(N - 2), for N > 1.<br>
+	// Given N, calculate F(N).<br>
+	// 0 ≤ N ≤ 92.<br>
+	func main() {<br>
+		// take arguments from console<br>
+		arguments := os.Args<br>
+		// check if there is valid numbers of argument<br>
+		if len(arguments) != 2 {<br>
+			fmt.Println("Please enter only one argument N")<br>
+			return<br>
+		}<br>
+		//converting string number to integer number<br>
+		N, err := strconv.Atoi(arguments[1])<br>
+		//handling not valid numbers<br>
+		if err != nil || N < 0 {<br>
+			fmt.Println("Please enter only valid number")<br>
+			return<br>
+		}<br>
+		//calling method fib to calculate fibonacci number<br>
+		fmt.Println(Fib(N))<br>
+	}<br>
+	 <br>
+	//creating Map to store results<br>
+	var Map map[int]int<br>
+	<br>
+	// 0 ≤ N ≤ 92.<br>
+	func Fib(N int) int {<br>
+	<br>
+		Map = make(map[int]int)<br>
+		return Recurse(N)<br>
+	}<br>
+	func Recurse(N int) int {<br>
+		//checking if N allready calculated, returning it's result<br>
+		_, ok := Map[N]<br>
+		if ok {<br>
+			return Map[N]<br>
+		}<br>
+		result := 0<br>
+		// base point of recursiton when number is 0 or 1<br>
+		if N == 0 || N == 1 {<br>
+			result = N<br>
+		}<br>
+		// calling recursion when Number is more or equal 2<br>
+		// f(N) = f(N-1) + f(N-2)<br>
+		if N >= 2 {<br>
+			result = Recurse(N-1) + Recurse(N-2)<br>
+		}<br>
+		//adding new result<br>
+		Map[N] = result<br>
+		return result<br>
+	}<br>
     </code>
 </body>
 </html>
